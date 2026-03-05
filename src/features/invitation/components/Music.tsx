@@ -14,7 +14,7 @@ const playfair = Playfair_Display({ subsets: ["latin"] });
 
 const PLAYLIST = [
     { title: "Vals de las Flores", url: "/music/song1.mp3" },
-    { title: "Perfect - Ed Sheeran", url: "/music/song2.mp3" },
+    { title: "Perfect - Ed Sheeran", url: "/music/edshean.mp3" },
 ];
 
 export const Music = () => {
@@ -27,7 +27,6 @@ export const Music = () => {
 
     useEffect(() => {
         audioRef.current = new Audio(PLAYLIST[currentIndex].url);
-
         const audio = audioRef.current;
 
         const updateProgress = () => {
@@ -72,56 +71,59 @@ export const Music = () => {
     const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + PLAYLIST.length) % PLAYLIST.length);
 
     return (
-        <div className="flex flex-col items-center gap-12 py-20 px-8 bg-[#FFFDF5]">
+        <section className="w-full flex flex-col">
 
-            <div data-aos="fade-up" className="flex flex-col items-center w-full max-w-sm">
+            <div className="flex flex-col items-center py-24 px-8 bg-[#FAF7ED]">
+                <div data-aos="fade-up" className="flex flex-col items-center w-full max-w-sm">
 
-                <Stack direction="row" spacing={4} alignItems="center" className="mb-6">
-                    <IconButton onClick={handlePrev} className="text-amber-800/40">
-                        <SkipPreviousOutlined sx={{ fontSize: 35 }} />
-                    </IconButton>
+                    <Stack direction="row" spacing={3} alignItems="center" className="mb-8">
+                        <IconButton onClick={handlePrev} className="text-amber-800/30">
+                            <SkipPreviousOutlined sx={{ fontSize: 32 }} />
+                        </IconButton>
 
-                    <IconButton
-                        onClick={togglePlay}
-                        className="bg-amber-900/5 border border-amber-200 text-amber-900 p-5 hover:bg-amber-100/50 shadow-sm"
-                    >
-                        {isPlaying ?
-                            <PauseOutlined sx={{ fontSize: 45 }} /> :
-                            <PlayArrowOutlined sx={{ fontSize: 45 }} />
-                        }
-                    </IconButton>
+                        <IconButton
+                            onClick={togglePlay}
+                            className="bg-white/40 text-amber-900 p-6 hover:bg-white/60 transition-all shadow-sm"
+                        >
+                            {isPlaying ?
+                                <PauseOutlined sx={{ fontSize: 40 }} /> :
+                                <PlayArrowOutlined sx={{ fontSize: 40 }} />
+                            }
+                        </IconButton>
 
-                    <IconButton onClick={handleNext} className="text-amber-800/40">
-                        <SkipNextOutlined sx={{ fontSize: 35 }} />
-                    </IconButton>
-                </Stack>
+                        <IconButton onClick={handleNext} className="text-amber-800/30">
+                            <SkipNextOutlined sx={{ fontSize: 32 }} />
+                        </IconButton>
+                    </Stack>
 
-                <div className="w-full space-y-3 text-center">
-                    <p className={`${playfair.className} text-lg text-amber-950 italic tracking-wide`}>
-                        {PLAYLIST[currentIndex].title}
-                    </p>
+                    <div className="w-full space-y-4 text-center">
+                        <p className={`${playfair.className} text-xl text-amber-950/80 italic tracking-wide`}>
+                            {PLAYLIST[currentIndex].title}
+                        </p>
 
-                    <div className="relative w-full h-[2px] bg-amber-100 rounded-full overflow-hidden">
-                        <div
-                            className="absolute top-0 left-0 h-full bg-amber-600 transition-all duration-300"
-                            style={{ width: `${progress}%` }}
-                        />
-                    </div>
+                        <div className="relative w-full h-px bg-amber-200/50 rounded-full">
+                            <div
+                                className="absolute top-0 left-0 h-full bg-amber-700/60 transition-all duration-300"
+                                style={{ width: `${progress}%` }}
+                            />
+                        </div>
 
-                    <div className="flex justify-between text-[10px] uppercase tracking-widest text-amber-800/50 font-bold">
-                        <span>{currentTime}</span>
-                        <span>{duration}</span>
+                        <div className="flex justify-between text-[10px] uppercase tracking-[0.25em] text-amber-800/40 font-bold">
+                            <span>{currentTime}</span>
+                            <span>{duration}</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div data-aos="zoom-in" className="relative max-w-xl text-center">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-amber-200/60" />
-                <p className={`${playfair.className} text-stone-500 italic leading-relaxed text-xl md:text-2xl py-12 px-6`}>
-                    "{VALERIA_DATA.intro}"
-                </p>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-amber-200/60" />
+            <div className="bg-[#F5F0E1] py-28 px-8">
+                <div data-aos="zoom-in" className="max-w-3xl mx-auto text-center">
+                    <p className={`${playfair.className} text-stone-500 italic leading-relaxed text-2xl md:text-3xl lg:text-4xl`}>
+                        "{VALERIA_DATA.intro}"
+                    </p>
+                </div>
             </div>
-        </div>
+
+        </section>
     );
 };

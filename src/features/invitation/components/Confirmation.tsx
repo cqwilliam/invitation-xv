@@ -32,7 +32,7 @@ export const Confirmation = () => {
         </h2>
 
         <div className="relative flex items-center justify-center w-full max-w-lg mb-12">
-          <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent via-amber-200 to-amber-300"></div>
+          <div className="flex-1 h-px bg-linear-to-r from-transparent via-amber-200 to-amber-300"></div>
           <div className="mx-6 relative">
             <Image
               src="/tiaras.png"
@@ -42,7 +42,7 @@ export const Confirmation = () => {
               className="relative z-10 object-contain opacity-80"
             />
           </div>
-          <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent via-amber-200 to-amber-300"></div>
+          <div className="flex-1 h-px bg-linear-to-l from-transparent via-amber-200 to-amber-300"></div>
         </div>
 
         <div className="max-w-2xl space-y-8 mb-16 px-4">

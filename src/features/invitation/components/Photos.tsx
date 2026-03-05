@@ -42,10 +42,10 @@ export const Photos = () => {
     y.set(0);
   };
 
-  if (!isMounted) return <div className="h-[600px]" />;
+  if (!isMounted) return <div className="h-150" />;
 
   return (
-    <section className="py-20 bg-[#FFFDF5] flex flex-col items-center justify-center overflow-hidden min-h-[650px]">
+    <section className="py-20 bg-[#FFFDF5] flex flex-col items-center justify-center overflow-hidden min-h-162.5">
       <div className="text-center mb-16 px-4" data-aos="fade-up">
         <h2 className="font-serif text-3xl text-amber-900 italic tracking-wide">
           Recuerdos de mi Infancia
@@ -55,7 +55,7 @@ export const Photos = () => {
         </p>
       </div>
 
-      <div className="relative w-[300px] h-[400px] md:w-[380px] md:h-[480px]">
+      <div className="relative w-75 h-100 md:w-95 md:h-120">
         <AnimatePresence mode="popLayout">
           {cards.map((photo, index) => {
             const isTop = index === cards.length - 1;

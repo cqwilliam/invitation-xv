@@ -7,8 +7,8 @@ export const VALERIA_DATA = {
     madrina: "Zulema Supo Payé"
   },
   event: {
-    churchMapUrl:"",
-    salonMapUrl:"",
+    churchMapUrl:"https://maps.app.goo.gl/MjVk92z74g3ngfLn6",
+    salonMapUrl:"https://maps.app.goo.gl/KwouVkNzQiB1Uqog8",
     date: "Sábado 21 de Marzo",
     fullDateISO: "2026-03-21T17:00:00",
     church: "Misa de Salud Iglesia Cristo Rey",
